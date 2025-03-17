@@ -1,0 +1,116 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  direction: rtl;
+}
+
+.chatBox {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.sent {
+  background-color: #0070f3;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+}
+
+.received {
+  background-color: #e0e0e0;
+  color: black;
+  margin-right: auto;
+  text-align: left;
+}
+
+.sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column; /* سه خط عمودی زیر هم */
+  gap: 15px; /* فاصله بین خطوط */
+  padding: 20px;
+  width: 100%;
+  max-width: 500px; /* حداکثر عرض برای زیبایی */
+  margin: 0 auto; /* وسط‌چین کردن */
+}
+
+.textBox {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #333; /* کادر شیک */
+  border-radius: 8px; /* گوشه‌های گرد */
+  resize: none; /* جلوگیری از تغییر اندازه توسط کاربر */
+  background-color: #f9f9f9; /* پس‌زمینه روشن */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+}
+
+.textBox:focus {
+  outline: none;
+  border-color: #007bff; /* رنگ کادر موقع فوکوس */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.adminButton {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745; /* سبز برای ادمین */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.adminButton:hover {
+  background-color: #218838; /* سبز تیره‌تر موقع هاور */
+  transform: scale(1.05); /* کمی بزرگ‌تر شدن */
+}
+
+.userButton {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff; /* آبی برای کاربر */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.userButton:hover {
+  background-color: #0069d9; /* آبی تیره‌تر موقع هاور */
+  transform: scale(1.05); /* کمی بزرگ‌تر شدن */
+}
+.deleteButton {
+  background-color: #dc3545; /* قرمز برای حذف */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #c82333; /* قرمز تیره‌تر موقع هاور */
+}
