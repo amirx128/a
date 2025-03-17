@@ -1,7 +1,7 @@
 "use client"; // این یک کامپوننت کلاینت‌ساید است
 
 import { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import { Grid, TextField, Button, Typography, Box } from "@mui/material";
 import {
@@ -21,7 +21,7 @@ import {
 } from "../../../components/Dropdowns"; // م
 
 import { sendRequest } from "../../../utils/api";
-const UpdateProfilePage = ({ params }) => {
+const UpdateProfilePage = ({ }) => {
     const { stringId } = useParams(); // مثلاً "2***1"
     // حالت اولیه فرم
     const [formData, setFormData] = useState({
@@ -154,6 +154,9 @@ const UpdateProfilePage = ({ params }) => {
                     });
                 }
             } catch (err) {
+                if (err.message === "Token is invalid") {
+                    router.push("/login"); // ریدایرکت به لاگین در صورت 401
+                }
                 setError("خطا دریافت اطلاعات");
             } finally {
                 setLoading(false);
@@ -172,7 +175,6 @@ const UpdateProfilePage = ({ params }) => {
     // ارسال فرم برای آپدیت
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const payload = { stringId: stringId };
         const auth = JSON.parse(localStorage.getItem("auth") || "{}");
         if (!auth.token || !auth.id) {
             router.push("/login");
