@@ -13,6 +13,22 @@ export default function UserPage() {
     const router = useRouter();
     const { id } = useParams(); // گرفتن id از URL
 
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        // لود کردن داده‌ها از localStorage
+        const auth = localStorage.getItem("auth");
+
+        if (auth) {
+            const parsedAuth = JSON.parse(auth);
+            setUserId(parsedAuth.id); // استخراج userId و ذخیره در state
+
+            console.log(parsedAuth.id);
+        }
+        console.log(auth);
+    }, []); // این effect فقط یکبار هنگام لود صفحه اجرا می‌شود
+
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -44,6 +60,7 @@ export default function UserPage() {
         fetchUser();
     }, [id, router]);
 
+
     if (error) {
         return (
             <div className={styles.container}>
@@ -62,56 +79,56 @@ export default function UserPage() {
     }
 
     return (
-             <div sx={{ textAlign: "center" }}>
+        <div sx={{ textAlign: "center" }}>
 
-                <div className={styles.container}>
-                    <h1 className={styles.name}>{user.firstName} - {user.lastName}</h1>
+            <div className={styles.container}>
+                <h1 className={styles.name}>{user.firstName} - {user.lastName}</h1>
 
-                    {/* درباره من */}
-                    <div className={styles.box}>
-                        <h2 className={styles.boxTitle}>درباره من</h2>
-                        <p className={styles.description}>{user.myDescription}</p>
-                    </div>
- 
-                    <div className={styles.box}>
-                        <h2 className={styles.boxTitle}>درباره تو</h2>
-                        <p className={styles.description}>{user.rDescription}</p>
-                    </div>
-
-                    {/* اطلاعات کاربر */}
-                    <div className={styles.info}>
-                        <p>📅 تاریخ تولد: {user.birthDate.split("T")[0]}</p>
-                        <p>🎂 سن: {user.age} سال</p>
-                        <p>💙 وضعیت سلامت: {user.healthStatus}</p>
-                        <p>🏡 نوع زندگی: {user.liveType}</p>
-                        <p>❤️ وضعیت تأهل: {user.marriageStatus}</p>
-                        <p>📍 استان: {user.province}</p>
-                        <p>💰 درآمد: {user.incomeAmount}</p>
-                        <p>🚗 ارزش خودرو: {user.carValue}</p>
-                        <p>🏠 ارزش خانه: {user.homeValue}</p>
-                        <p>🕒 آخرین فعالیت: {user.lastActivityDate.split("T")[0]}</p>
-                        <p>🤝 نوع رابطه مورد نظر: {user.relationType}</p>
-                        <p>📏 قد: {user.ghad}</p>
-                        <p>⚖️ وزن: {user.vazn}</p>
-                        <p>👶 تعداد فرزندان: {user.cheildCount}</p>
-                        <p>👦 سن فرزند بزرگتر: {user.firstCheildAge}</p>
-                        <p>🌕 رنگ پوست: {user.rangePoost}</p>
-                        <p>💄 میزان زیبایی: {user.zibaeeNumber}</p>
-                        <p>🧑‍🦱 میزان خوش‌تیپی: {user.tipNUmber}</p>
-                        <p>📱 وضعیت موبایل: {user.mobileStatus}</p>
-                        <p>📧 وضعیت ایمیل: {user.emailStatus}</p>
-                        <p>📅 تاریخ عضویت: {user.memberDate}</p>
-                        <p>📅 ایمیل: {user.mobileNumber}</p>
-                        <p>📅 موبایل : {user.emailAddress}</p>
-                    </div>
-
-                    <Link href={`/chat/${user.id}`} className={styles.button}>
-                        شروع گفتگو
-                    </Link> 
-                     <Link href={`/update/${user.id}`} className={styles.button}>
-                        ویرایش کاربر
-                    </Link>
+                {/* درباره من */}
+                <div className={styles.box}>
+                    <h2 className={styles.boxTitle}>درباره من</h2>
+                    <p className={styles.description}>{user.myDescription}</p>
                 </div>
+
+                <div className={styles.box}>
+                    <h2 className={styles.boxTitle}>درباره تو</h2>
+                    <p className={styles.description}>{user.rDescription}</p>
+                </div>
+
+                {/* اطلاعات کاربر */}
+                <div className={styles.info}>
+                    <p>📅 تاریخ تولد: {user.birthDate.split("T")[0]}</p>
+                    <p>🎂 سن: {user.age} سال</p>
+                    <p>💙 وضعیت سلامت: {user.healthStatus}</p>
+                    <p>🏡 نوع زندگی: {user.liveType}</p>
+                    <p>❤️ وضعیت تأهل: {user.marriageStatus}</p>
+                    <p>📍 استان: {user.province}</p>
+                    <p>💰 درآمد: {user.incomeAmount}</p>
+                    <p>🚗 ارزش خودرو: {user.carValue}</p>
+                    <p>🏠 ارزش خانه: {user.homeValue}</p>
+                    <p>🕒 آخرین فعالیت: {user.lastActivityDate.split("T")[0]}</p>
+                    <p>🤝 نوع رابطه مورد نظر: {user.relationType}</p>
+                    <p>📏 قد: {user.ghad}</p>
+                    <p>⚖️ وزن: {user.vazn}</p>
+                    <p>👶 تعداد فرزندان: {user.cheildCount}</p>
+                    <p>👦 سن فرزند بزرگتر: {user.firstCheildAge}</p>
+                    <p>🌕 رنگ پوست: {user.rangePoost}</p>
+                    <p>💄 میزان زیبایی: {user.zibaeeNumber}</p>
+                    <p>🧑‍🦱 میزان خوش‌تیپی: {user.tipNUmber}</p>
+                    <p>📱 وضعیت موبایل: {user.mobileStatus}</p>
+                    <p>📧 وضعیت ایمیل: {user.emailStatus}</p>
+                    <p>📅 تاریخ عضویت: {user.memberDate}</p>
+                    <p>📅 ایمیل: {user.mobileNumber}</p>
+                    <p>📅 موبایل : {user.emailAddress}</p>
+                </div>
+
+                <Link href={`/chat/${user.id}***${userId}`} className={styles.button}>
+                    شروع گفتگو
+                </Link>
+                <Link href={`/update/${user.id}`} className={styles.button}>
+                    ویرایش کاربر
+                </Link>
             </div>
+        </div>
     );
 }

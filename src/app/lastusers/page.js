@@ -98,7 +98,7 @@ export default function LastUsersPage() {
             <tr
               key={user.id}
               style={{
-                backgroundColor: index % 2 === 0 ? "#f2f2f2" : "#ffcccc", // خاکستری و قرمز کم‌رنگ
+                backgroundColor: index % 2 === 0 ? "#118800" : "#f08f8f", // خاکستری و قرمز کم‌رنگ
               }}
             >
               <td

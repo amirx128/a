@@ -1,10 +1,37 @@
 .container {
   max-width: 800px;
+  /* حداکثر عرض توی دسکتاپ */
+  width: 100%;
+  /* عرض کامل توی موبایل */
   margin: 20px auto;
+  /* وسط‌چین کردن با حاشیه بالا و پایین */
   padding: 20px;
+  /* فاصله داخلی */
   direction: rtl;
+  /* جهت راست به چپ */
+  box-sizing: border-box;
+  /* مطمئن می‌شه padding توی عرض حساب بشه */
 }
 
+/* تنظیمات برای موبایل (عرض کمتر از 768px) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    /* توی موبایل عرض کامل بشه */
+    padding: 10px;
+    /* توی موبایل فاصله داخلی کمتر بشه */
+    margin: 10px auto;
+    /* حاشیه کمتر توی موبایل */
+  }
+}
+
+/* تنظیمات برای مانیتورهای خیلی بزرگ (اختیاری) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+    /* توی مانیتورهای بزرگ عرض بیشتر بشه */
+  }
+}
 .chatBox {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -12,7 +39,34 @@
   max-height: 500px;
   overflow-y: auto;
   background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box; /* برای اینکه padding و border در اندازه‌ها حساب بشه */
 }
+
+/* برای موبایل (صفحه‌های کوچکتر از 768px) */
+@media (max-width: 768px) {
+  .chatBox {
+    max-height: 400px; /* تنظیم ارتفاع برای موبایل */
+    padding: 12px; /* کم کردن padding برای فضای بیشتر */
+  }
+}
+
+/* برای تبلت (بین 768px و 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .chatBox {
+    max-height: 450px; /* تنظیم ارتفاع برای تبلت */
+    padding: 14px;
+  }
+}
+
+/* برای دسکتاپ */
+@media (min-width: 1024px) {
+  .chatBox {
+    max-height: 500px;
+    padding: 16px;
+  }
+}
+
 
 .message {
   margin: 10px 0;
@@ -42,28 +96,38 @@
 
 .inputSection {
   display: flex;
-  flex-direction: column; /* سه خط عمودی زیر هم */
-  gap: 15px; /* فاصله بین خطوط */
+  flex-direction: column;
+  /* سه خط عمودی زیر هم */
+  gap: 15px;
+  /* فاصله بین خطوط */
   padding: 20px;
   width: 100%;
-  max-width: 500px; /* حداکثر عرض برای زیبایی */
-  margin: 0 auto; /* وسط‌چین کردن */
+  max-width: 500px;
+  /* حداکثر عرض برای زیبایی */
+  margin: 0 auto;
+  /* وسط‌چین کردن */
 }
 
 .textBox {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #333; /* کادر شیک */
-  border-radius: 8px; /* گوشه‌های گرد */
-  resize: none; /* جلوگیری از تغییر اندازه توسط کاربر */
-  background-color: #f9f9f9; /* پس‌زمینه روشن */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه ظریف */
+  border: 2px solid #333;
+  /* کادر شیک */
+  border-radius: 8px;
+  /* گوشه‌های گرد */
+  resize: none;
+  /* جلوگیری از تغییر اندازه توسط کاربر */
+  background-color: #f9f9f9;
+  /* پس‌زمینه روشن */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* سایه ظریف */
 }
 
 .textBox:focus {
   outline: none;
-  border-color: #007bff; /* رنگ کادر موقع فوکوس */
+  border-color: #007bff;
+  /* رنگ کادر موقع فوکوس */
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
@@ -72,7 +136,8 @@
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background-color: #28a745; /* سبز برای ادمین */
+  background-color: #28a745;
+  /* سبز برای ادمین */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -80,8 +145,10 @@
 }
 
 .adminButton:hover {
-  background-color: #218838; /* سبز تیره‌تر موقع هاور */
-  transform: scale(1.05); /* کمی بزرگ‌تر شدن */
+  background-color: #218838;
+  /* سبز تیره‌تر موقع هاور */
+  transform: scale(1.05);
+  /* کمی بزرگ‌تر شدن */
 }
 
 .userButton {
@@ -89,7 +156,8 @@
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background-color: #007bff; /* آبی برای کاربر */
+  background-color: #007bff;
+  /* آبی برای کاربر */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -97,11 +165,15 @@
 }
 
 .userButton:hover {
-  background-color: #0069d9; /* آبی تیره‌تر موقع هاور */
-  transform: scale(1.05); /* کمی بزرگ‌تر شدن */
+  background-color: #0069d9;
+  /* آبی تیره‌تر موقع هاور */
+  transform: scale(1.05);
+  /* کمی بزرگ‌تر شدن */
 }
+
 .deleteButton {
-  background-color: #dc3545; /* قرمز برای حذف */
+  background-color: #dc3545;
+  /* قرمز برای حذف */
   color: white;
   border: none;
   border-radius: 5px;
@@ -112,5 +184,6 @@
 }
 
 .deleteButton:hover {
-  background-color: #c82333; /* قرمز تیره‌تر موقع هاور */
+  background-color: #c82333;
+  /* قرمز تیره‌تر موقع هاور */
 }

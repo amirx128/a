@@ -8,13 +8,13 @@
   .table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(73, 26, 202, 0.1);
   }
   
   .table th,
   .table td {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #9b1d1d;
     text-align: center;
   }
   
@@ -25,11 +25,11 @@
   }
   
   .table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #09c55e;
   }
   
   .table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #2e359e;
   }
   
   .table td {

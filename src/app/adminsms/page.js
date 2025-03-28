@@ -1,5 +1,6 @@
 // src/app/allChat/page.js
 "use client";
+import React, { useCallback } from "react";
 
 import { useState, useEffect } from "react";
 import { sendRequest } from "../../utils/api";

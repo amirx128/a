@@ -1,6 +1,7 @@
 // src/utils/api.js
 
 // src/utils/api.js
+// const BASE_API = "http://localhost:5000";
 const BASE_API = "https://api.hamsaryar.com";
 
 // لیست متدهایی که هدر نمی‌خوان
